@@ -5,11 +5,11 @@ import threading
 import sys 
 
 class UnixSocket(): 
-    def __init__(self, cust_file_socket = None): 
-        if cust_file_socket != None : 
-            self._file_socket = cust_file_socket
+    def __init__(self, cust_add_namespace = None): 
+        if cust_add_namespace != None : 
+            self._add_namespace = cust_add_namespace
         else : 
-            self._file_socket = "/tmp/unix_socket.sock"
+            self._add_namespace = "/tmp/unix_socket.sock"
 
         self._clients = []
 
@@ -26,19 +26,19 @@ class UnixSocket():
         """
         self.shutdown()
 
-        if os.path.exists(self._file_socket): 
-            os.remove(self._file_socket)
+        if os.path.exists(self._add_namespace): 
+            os.remove(self._add_namespace)
         print("unix socket is closed")
 
     def start_ipc_server(self) : 
         """start_ipc_server
         Init inter process communication server
         """
-        if os.path.exists(self._file_socket): 
-            os.remove(self._file_socket)
+        if os.path.exists(self._add_namespace): 
+            os.remove(self._add_namespace)
 
         self.server = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        self.server.bind(self._file_socket)
+        self.server.bind(self._add_namespace)
         self.server.listen()
         print("unix socket is opened")
 
