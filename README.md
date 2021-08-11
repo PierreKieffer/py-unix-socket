@@ -61,7 +61,7 @@ if __name__=="__main__":
         ipc.run()
 ```
 
-The acknowledgment event sent to the client process is: `"__ACK__\n"`
+The default acknowledgment event sent to the client process is: `"__ACK__\n"`
 
 ### Custom handler
 By default, the server will log incoming payload. 
