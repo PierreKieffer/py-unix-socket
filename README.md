@@ -14,7 +14,7 @@ Stupid Python implementation of a Unix domain socket server.
 	* [Broadcast](#broadcast)
 * [Client](#client)
 	* [Connect](#connect)
-	* [Sent and receive](#sent-and-receive)
+	* [Send and receive](#send-and-receive)
 	* [Exit request](#exit-request)
 
 
@@ -92,7 +92,7 @@ if __name__=="__main__":
 client = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 client.connect("/tmp/unix_socket.sock")
 ```
-### Sent and receive
+### Send and receive
 ```python
 message = "foobar\n"
 client.send(message.encode())
