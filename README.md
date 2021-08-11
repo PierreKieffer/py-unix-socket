@@ -1,6 +1,6 @@
 # py-unix-socket
 
-Python implementation of a Unix domain socket server. 
+Stupid Python implementation of a Unix domain socket server. 
 
 
 
